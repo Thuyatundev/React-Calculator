@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import Output from './component/Output';
+import Input from './component/Input';
+import Button from './component/Button';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [output, setOutput] = useState(0);
+  const [input, setInput] = useState(0);
+
+  function clickEvent(value) {
+    if (value === 'C') {
+      setInput(0);
+      setOutput(0);
+    } else if (value === 'Back') {
+      if (input !== 0) {
+        input.length === 1 ? setInput(0) : setInput(input.slice(0, input.length - 1));
+      }
+    } else if (value === '=') {
+      setOutput(eval(input));
+      setInput(0);
+    } else {
+      input === 0 ? setInput(value) : setInput(input + value);
+    }
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Output output={output} />
+      <Input input={input} />
+      <Button clickEvent={clickEvent} />
     </div>
   );
 }

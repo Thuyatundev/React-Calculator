@@ -1,0 +1,12 @@
+.input-box {
+    width: 400px;
+    background-color: rgb(79, 85, 85);
+    display: flex;
+    padding: 10px;
+    margin-left: 500px;
+}
+
+.input {
+    color: rgb(231, 231, 231);
+
+}

@@ -1,0 +1,12 @@
+.output-box {
+    width: 400px;
+    background-color: rgb(79, 85, 85);
+    display: flex;
+    padding: 10px;
+    margin-left: 500px;
+    border-radius: 3px 0px;
+}
+
+.output {
+    color: rgb(231, 231, 231);
+}
